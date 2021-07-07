@@ -1,0 +1,24 @@
+#main-nav{
+    position: fixed;
+    top: 0vh;
+    left: 0vw;
+    height: 10vh;
+    width: 100vw;
+    background-color: rgb(229, 27, 62);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+#main-nav a{
+    color: rgb(35, 35, 35);
+    text-decoration: none;
+    flex: 1 0 auto;
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    text-transform: uppercase;
+    transition: all .3s ease-out;
+}
+#main-nav a:hover{
+    background-color: #fff;
+}

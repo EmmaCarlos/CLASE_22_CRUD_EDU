@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DH | CREATE</title>
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/navigation.css">
+    <link rel="stylesheet" href="/css/edit.css">
+</head>
+<body>
+    <%- include ("../partials/navigation") %>
+    <form action="/product/update/<%= product.id %>?_method=PUT" method="post" id="edit-form" enctype="multipart/form-data">
+    <fieldset>
+        <figure><img src="/uploads/products/<%=product.image%>" alt=""></figure>
+        <label for="image">image</label>
+        <input type="file" name="image" id="image">
+    </fieldset>
+    <fieldset>
+        <label for="name">Name</label>
+        <input type="text" name="name" id="name" value="<%= product.name %>" >
+    </fieldset>
+    <fieldset>
+        <label for="brand">Brand</label>
+        <select name="brand" id="brand">
+            <% brands.forEach(brand => { %>
+                <% if (product.brand.id == brand.id) { %>
+                    <option value="<%= brand.id %>" selected><%= brand.name %></option>
+                <% } else { %>
+                    <option value="<%= brand.id %>"><%= brand.name %></option>
+                <% } %>
+            <% }) %>
+        </select>
+    </fieldset>
+    <fieldset>
+        <label for="colors">Colors</label>
+        <select name="colors" id="colors" multiple>
+            <% colors.forEach(color => { %>
+                <% let match = product.colors.filter(productColor => productColor.id == color.id) %>
+                <% if (match.length > 0) { %>
+                    <option selected value="<%= color.id %>" style="<%= `background-color:${color.value};`%>"><%= color.name %></option>
+                <% } else { %>
+                    <option value="<%= color.id %>" style="<%= `background-color:${color.value};` %>"><%= color.name %></option>
+                <% } %>
+            <% }) %>
+        </select>
+    </fieldset>
+    <fieldset>
+        <button type="submit">Send</button>
+    </fieldset>
+    </form> 
+</body>
+</html>
+</body>
+</html>

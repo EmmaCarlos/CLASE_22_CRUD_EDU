@@ -1,0 +1,51 @@
+body{
+    display: flex;
+    min-height: 100vh;
+    justify-content: center;
+    align-items: center;
+    background-color: #efefef;
+}
+
+#edit-form{
+    background-color: #fff;
+    padding: 1rem;
+    border-radius: .25rem;
+    box-shadow: 0 0 .5rem 0 rgba(100,100,100,.3);
+}
+#edit-form fieldset{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    margin-bottom: .75rem;
+    width: 100%;
+}
+#edit-form label{
+    width: 45%;
+    text-transform: uppercase;
+    font-size: 1rem;
+    margin-right: 5%;
+    padding: .5rem;
+    background-color: #363636;
+    border-radius: .25rem;
+    color: #efefef;
+    text-align: center;
+}
+#edit-form input{
+    width: 50%;
+    height: 1.5rem;
+    font-size: 1rem;
+}
+#edit-form select:not([multiple]){
+    height: 1.5rem;
+    width: 50%;
+}
+
+#edit-form select option{
+    height: 1.5rem;
+}
+
+#edit-form select[multiple]{
+    background-color: #282828;
+    width: 50%;
+}

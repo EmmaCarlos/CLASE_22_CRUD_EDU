@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DH | SHOW</title>
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/navigation.css">
+    <link rel="stylesheet" href="/css/detail.css">
+</head>
+<body>
+    <%- include ("../partials/navigation") %> 
+    <section id="item-product">
+            <% if (product.image) { %>
+                <figure><img src="/uploads/products/<%= product.image%>" alt=""></figure>
+            <% } else { %>
+                <figure><img src="/images/default.jpg" alt=""></figure>
+            <% } %>
+            <article>
+
+                <h2><%= product.name %></h2>
+                <p><%= product.brand.name %></p>
+                <form action="/cart/add" method="post">
+                    <h3>Colors</h3>
+
+                    <% product.colors.forEach(color => { %>
+                        <fieldset>
+                            <input type="radio" name="color" required id="color-<%= color.id %>" value="<%= color.id %>"/>
+                            <label for="color-<%= color.id %>">
+                                <%= color.name %>
+                                <span style="<%= `background-color:${color.value};`%> display: inline-block; width: 1rem; height:1rem" class="color"></span>
+                            </label>
+                        </fieldset>
+                    <% }) %>
+                    <fieldset>
+                        <label for="quantity">Quantity</label>
+                        <input type="number" min="1" max="3" value="1" required>
+                    </fieldset>
+                    <fieldset>
+                        <button type="submit">comprar</button>
+                    </fieldset>
+                </form>
+                <a href="/product/edit/<%= product.id %>">edit</a>
+                <form action="/product/delete/<%= product.id %>?_method=DELETE" method="post">
+                    <button type="submit">delete</button>
+                </form>
+            </article>
+    </section>
+</body>
+</html>

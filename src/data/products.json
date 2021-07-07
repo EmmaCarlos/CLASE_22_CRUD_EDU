@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "name": "Demo 3",
+    "brand": 1,
+    "colors": [
+      2,
+      3
+    ],
+    "image": "image-1623974496723.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Demo 2",
+    "brand": 1,
+    "colors": [
+      2,
+      3
+    ],
+    "image": "image-1623972326125.jpg"
+  }
+]
