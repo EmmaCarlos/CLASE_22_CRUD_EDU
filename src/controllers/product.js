@@ -16,6 +16,6 @@ module.exports = {
     },
     delete: (req,res) => {
         let result = product.delete(req.params.id);
-        return result == true ? res.redirect("/") : res.send("Error al cargar la informacion") 
+        return result == true ? res.redirect("/") : res.send("Error al cargar la informacion") //que nos redirecciones en el caso de true
     }
 }
